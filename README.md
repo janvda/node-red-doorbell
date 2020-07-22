@@ -1,7 +1,12 @@
-node-red-doorbell
-=================
+# node-red-doorbell
 
-### About
 
-This is your project's README.md file. It helps users understand what your
-project does, how to use it and anything else they may need to know.
+## Environment Variables
+
+It requires that following environment variables are set:
+
+| environment variable | description |
+| ------------- | ------------- |
+| EDGE_IMPULSE_APIKEY  | api key for your project. You can find this in your [edge impulse dashboard](https://studio.edgeimpulse.com/)  |
+| DEVICE_NAME  | Unique identifier for your device - e.g. the MAC address |
+| DEVICE_TYPE  | type of device - e.g the model  |
