@@ -3,7 +3,8 @@
     "description": "A Node-RED Project",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-contrib-sox-utils": "0.2.5"
+        "node-red-contrib-sox-utils": "0.2.5",
+        "node-red-contrib-cbor": "1.2.0"
     },
     "node-red": {
         "settings": {
