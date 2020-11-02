@@ -11,6 +11,27 @@ It requires that following environment variables are set:
 | DEVICE_NAME  | Unique identifier for your device - e.g. the MAC address |
 | DEVICE_TYPE  | type of device - e.g the model  |
 
+## Deploying new version of edge impulse
+
+1. Go to `Edge Impulse dashboard > Deployment` menu
+   * choose optimization int8 or float32
+   * select build => this will download your model as zip file.
+
+2. Goto the downloads folder where the zip file (see step 1).  Unzip it and open terminal window within it.
+
+3. Set DOCKER_HOST variable for terminal session so that it points to docker environment by following alias
+
+```
+lan_setup
+```
+
+4. Copy the files to the respective folder through following 2 commands:
+
+```
+docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/ei-doorbell-1-deployment-wasm-1595836551780
+docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/ei-doorbell-1-deployment-wasm-1595836551780
+```
+
 ## Relevant Edge Impulse Forum topics
 
 * [Recognize my doorbell](https://forum.edgeimpulse.com/t/recognize-my-doorbell/557)
