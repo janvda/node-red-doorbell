@@ -1568,8 +1568,8 @@
         "bits": 16,
         "gain": "0",
         "lowpass": 8000,
-        "showDuration": false,
-        "durationType": "limited",
+        "showDuration": true,
+        "durationType": "forever",
         "durationLength": "60",
         "silenceDetection": "nothing",
         "silenceDuration": "2.0",
@@ -1874,7 +1874,7 @@
         "type": "debug",
         "z": "f74bc4c5.ba44d8",
         "name": "classification",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -2680,6 +2680,22 @@
             [
                 "e137dbdb.fd48f8"
             ]
+        ]
+    },
+    {
+        "id": "88cbbb48.c4e778",
+        "type": "function",
+        "z": "f74bc4c5.ba44d8",
+        "name": "window (16bit LE signed) => Array",
+        "func": "// see https://nodejs.org/api/buffer.htm\n\n// https://stackoverflow.com/questions/18148827/convert-buffer-to-array\nBuffer.prototype.bufferInt16LE_to_Array = function(){\n    if (this.length > 0) {\n        const data = new Array(this.length/2);\n        for (let i = 0; i < this.length/2; i=i+1)\n            data[i] = this.readInt16LE(2*i);\n        return data;\n    }\n    return [];\n}\n\n/*\nlet out = new Array(msg.payload.length/2);\nlet i=0;\nfor(i=0; i<msg.payload.length/2; i++) {\n    out[i] = msg.payload.readInt16LE(2*i);\n} */\n\nmsg.payload = msg.payload.bufferInt16LE_to_Array();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1160,
+        "y": 220,
+        "wires": [
+            []
         ]
     }
 ]
