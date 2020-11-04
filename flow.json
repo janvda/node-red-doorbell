@@ -1585,7 +1585,9 @@
                 "ca60aad7.a4ea28",
                 "cc7592fb.afd36"
             ],
-            []
+            [
+                "f4a7d296.c3962"
+            ]
         ]
     },
     {
@@ -1651,6 +1653,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
         "x": 780,
         "y": 100,
         "wires": []
@@ -1675,7 +1679,7 @@
         "type": "function",
         "z": "f74bc4c5.ba44d8",
         "name": "window (16bit LE signed) => Array",
-        "func": "// see https://nodejs.org/api/buffer.htm\n\n// https://stackoverflow.com/questions/18148827/convert-buffer-to-array\nBuffer.prototype.bufferInt16LE_to_Array = function(){\n    if (this.length > 0) {\n        const data = new Array(this.length/2);\n        for (let i = 0; i < this.length/2; i=i+1)\n            data[i] = this.readInt16LE(2*i);\n        return data;\n    }\n    return [];\n}\n\n/*\nlet out = new Array(msg.payload.length/2);\nlet i=0;\nfor(i=0; i<msg.payload.length/2; i++) {\n    out[i] = msg.payload.readInt16LE(2*i);\n} */\n\nmsg.payload = msg.payload.bufferInt16LE_to_Array();\n\nreturn msg;",
+        "func": "// see https://nodejs.org/api/buffer.htm\n\n// https://stackoverflow.com/questions/18148827/convert-buffer-to-array\nBuffer.prototype.bufferInt16LE_to_Array = function(){\n    if (this.length > 0) {\n        const data = new Array(this.length/2);\n        for (let i = 0; i < this.length/2; i=i+1)\n            data[i] = this.readInt16LE(2*i);\n        return data;\n    }\n    return [];\n}\n\n/*\nlet out = new Array(msg.payload.length/2);\nlet i=0;\nfor(i=0; i<msg.payload.length/2; i++) {\n    out[i] = msg.payload.readInt16LE(2*i);\n} */\n\nmsg.buffer = msg.payload;\nmsg.payload = msg.payload.bufferInt16LE_to_Array();\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1865,7 +1869,8 @@
         "wires": [
             [
                 "95e15efe.e1f5a",
-                "6601f4e6.29c5ac"
+                "6601f4e6.29c5ac",
+                "5ef1a407.e8c84c"
             ]
         ]
     },
@@ -2105,6 +2110,13 @@
                 "pt": "flow",
                 "to": "null",
                 "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "wav_count",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -2349,7 +2361,7 @@
         "onceDelay": 0.1,
         "topic": "",
         "x": 180,
-        "y": 540,
+        "y": 1360,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2368,7 +2380,7 @@
         "complete": "payload",
         "targetType": "msg",
         "x": 900,
-        "y": 740,
+        "y": 1560,
         "wires": []
     },
     {
@@ -2391,7 +2403,7 @@
         "to": "",
         "reg": false,
         "x": 670,
-        "y": 580,
+        "y": 1400,
         "wires": [
             [
                 "5cd6f058.a01e9"
@@ -2409,7 +2421,7 @@
         "initialize": "",
         "finalize": "",
         "x": 560,
-        "y": 780,
+        "y": 1600,
         "wires": [
             [
                 "d11787fb.00fb18"
@@ -2435,7 +2447,7 @@
         "repair": false,
         "outputs": 2,
         "x": 590,
-        "y": 740,
+        "y": 1560,
         "wires": [
             [
                 "132d6cb5.a1a173",
@@ -2466,7 +2478,7 @@
         "to": "",
         "reg": false,
         "x": 610,
-        "y": 840,
+        "y": 1660,
         "wires": [
             [
                 "c29808f7.9fdf88",
@@ -2486,7 +2498,7 @@
         "complete": "payload",
         "targetType": "msg",
         "x": 880,
-        "y": 840,
+        "y": 1660,
         "wires": []
     },
     {
@@ -2498,7 +2510,7 @@
             "a4baf9b0.f84538"
         ],
         "x": 895,
-        "y": 800,
+        "y": 1620,
         "wires": []
     },
     {
@@ -2528,7 +2540,7 @@
         "tostatus": false,
         "complete": "false",
         "x": 890,
-        "y": 680,
+        "y": 1500,
         "wires": []
     },
     {
@@ -2586,7 +2598,7 @@
         "sendError": false,
         "encoding": "none",
         "x": 570,
-        "y": 680,
+        "y": 1500,
         "wires": [
             [
                 "7df526c3.33d7a8",
@@ -2601,7 +2613,7 @@
         "name": "Test",
         "info": "",
         "x": 70,
-        "y": 500,
+        "y": 1320,
         "wires": []
     },
     {
@@ -2623,7 +2635,7 @@
         "topic": "",
         "payloadType": "str",
         "x": 180,
-        "y": 580,
+        "y": 1400,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2647,8 +2659,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
-        "y": 620,
+        "x": 250,
+        "y": 1440,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2675,10 +2687,687 @@
         "to": "",
         "reg": false,
         "x": 630,
-        "y": 520,
+        "y": 1340,
         "wires": [
             [
                 "e137dbdb.fd48f8"
+            ]
+        ]
+    },
+    {
+        "id": "5ef1a407.e8c84c",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "not other ?",
+        "property": "classification",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "other",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 690,
+        "y": 420,
+        "wires": [
+            [
+                "9ec8de58.8d0bb"
+            ]
+        ]
+    },
+    {
+        "id": "a5f47b61.aa2ef8",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "not other",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9ec8de58.8d0bb",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "flow.wav_count<10",
+        "property": "wav_count",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "20",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 460,
+        "wires": [
+            [
+                "65005a5c.d99604"
+            ]
+        ]
+    },
+    {
+        "id": "65005a5c.d99604",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "increment flow.wav_count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "wav_count",
+                "pt": "flow",
+                "to": "$flowContext(\"wav_count\")+1",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "other_permil",
+                "pt": "msg",
+                "to": "payload.results[label=\"other\"].value*1000~>$round(0)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "buffer",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 460,
+        "wires": [
+            [
+                "a5f47b61.aa2ef8",
+                "2d8ff807.309228"
+            ]
+        ]
+    },
+    {
+        "id": "f4a7d296.c3962",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "sox-record output2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "b4907fed.89338",
+        "type": "http request",
+        "z": "f74bc4c5.ba44d8",
+        "name": "post edge impulse",
+        "method": "POST",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 350,
+        "y": 1120,
+        "wires": [
+            [
+                "81efd3a1.05211",
+                "c5737672.f68138"
+            ]
+        ]
+    },
+    {
+        "id": "81efd3a1.05211",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "post response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 720,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "1f471255.5201ee",
+        "type": "CBOR",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "x": 350,
+        "y": 880,
+        "wires": [
+            [
+                "e84db08.e1f1e5",
+                "fd2e2b01.0d4578"
+            ]
+        ]
+    },
+    {
+        "id": "7ec4a9c1.598a18",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "set payload and headers",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\t    \"protected\": {\t        \"ver\": \"v1\",\t        \"alg\": \"none\",\t        \"iat\": ($now()~>$toMillis())/1000~>$round(0)\t    },\t    \"signature\": \"0000000000000000000000000000000000000000000000000000000000000000\",\t    \"payload\": {\t        \"device_name\": $env(\"DEVICE_NAME\"),\t        \"device_type\": $env(\"DEVICE_TYPE\"),\t        \"interval_ms\": 1000/44100,\t        \"sensors\": [\t            { \"name\": \"audio\", \"units\": \"wav\" }\t        ],\t        \"values\": [ \"Ref-BINARY-i16 \" ]\t    }\t}",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "headers",
+                "pt": "msg",
+                "to": "{\t        'x-api-key': $env(\"EDGE_IMPULSE_APIKEY\"),\t        'x-file-name': (filename~>$split(\"/\"))[-1],\t        'x-label': \"other\",\t        'Content-Type': 'application/octet-stream'\t}",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "url",
+                "pt": "msg",
+                "to": "\"http://ingestion.edgeimpulse.com/api/\" & \"training\" & \"/data\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 820,
+        "wires": [
+            [
+                "1f471255.5201ee",
+                "5bad214d.c76ac",
+                "d5028cf3.be5f1"
+            ]
+        ]
+    },
+    {
+        "id": "e84db08.e1f1e5",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "to CBOR",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 640,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "5bad214d.c76ac",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 630,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "76d2f648.7f7a18",
+        "type": "function",
+        "z": "f74bc4c5.ba44d8",
+        "name": "to hex",
+        "func": "msg.payload = msg.payload.toString('hex');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 690,
+        "y": 1020,
+        "wires": [
+            [
+                "335d583d.11d5c8"
+            ]
+        ]
+    },
+    {
+        "id": "335d583d.11d5c8",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "to hex string",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 830,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "7a5f485.4d4a6b8",
+        "type": "function",
+        "z": "f74bc4c5.ba44d8",
+        "name": "append audio recording",
+        "func": "\nmsg.payload = Buffer.concat([msg.payload, msg.wav_file]);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 1000,
+        "wires": [
+            [
+                "7a0ed89e.72cdd8",
+                "76d2f648.7f7a18",
+                "b4907fed.89338"
+            ]
+        ]
+    },
+    {
+        "id": "7a0ed89e.72cdd8",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "body without signature",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 740,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "fd2e2b01.0d4578",
+        "type": "function",
+        "z": "f74bc4c5.ba44d8",
+        "name": "change last field in indefinete array with FF",
+        "func": "/* assured that it should end like:\n     9F                                # array(*)\n         6E                             # text(14)\n            5265662D42494E4152592D693136 # \"Ref-BINARY-i16\"\n         FF                             # primitive(*)\n*/\n\nvar buf = msg.payload\n\nbuf.writeUInt8(0x9f, buf.length - 17);\nbuf.writeUInt8(0x6e, buf.length - 16);\nbuf.writeUInt8(0xff, buf.length - 1);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 410,
+        "y": 940,
+        "wires": [
+            [
+                "7a5f485.4d4a6b8"
+            ]
+        ]
+    },
+    {
+        "id": "c5737672.f68138",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "statusCode",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1180,
+        "wires": [
+            [
+                "13e6e19c.5201ee"
+            ]
+        ]
+    },
+    {
+        "id": "d5028cf3.be5f1",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "uploading ....",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 1220,
+        "wires": [
+            [
+                "13e6e19c.5201ee"
+            ]
+        ]
+    },
+    {
+        "id": "2c086390.7b726c",
+        "type": "file",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "filename": "",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 910,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2d8ff807.309228",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "\"/data/upload/other.\" & (other_permil~>$formatNumber(\"000\")) & $now('.[Y0001][M01][D01]_[H01][m01][s01]_[f]')  & \".raw\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 520,
+        "wires": [
+            [
+                "61d2c867.5cf328",
+                "2c086390.7b726c"
+            ]
+        ]
+    },
+    {
+        "id": "61d2c867.5cf328",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "filename",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "bf0d0b24.8f2688",
+        "type": "fs-file-lister",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "start": "/data/upload",
+        "pattern": "*.raw",
+        "folders": "*",
+        "hidden": true,
+        "lstype": "files",
+        "path": true,
+        "single": false,
+        "depth": 0,
+        "stat": false,
+        "showWarnings": true,
+        "x": 380,
+        "y": 600,
+        "wires": [
+            [
+                "203b0187.972ede",
+                "fa166c6.6a8369"
+            ]
+        ]
+    },
+    {
+        "id": "de0fcbfa.3cde28",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 600,
+        "wires": [
+            [
+                "bf0d0b24.8f2688"
+            ]
+        ]
+    },
+    {
+        "id": "203b0187.972ede",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6e3203f0.a89a1c",
+        "type": "file in",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "filename": "",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "x": 370,
+        "y": 700,
+        "wires": [
+            [
+                "8ae3da94.a0d338",
+                "501faf4f.cb3f"
+            ]
+        ]
+    },
+    {
+        "id": "8ae3da94.a0d338",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "fa166c6.6a8369",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "filename",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 370,
+        "y": 660,
+        "wires": [
+            [
+                "6e3203f0.a89a1c"
+            ]
+        ]
+    },
+    {
+        "id": "9a3a0ff3.272e5",
+        "type": "file",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 610,
+        "y": 760,
+        "wires": [
+            [
+                "7ec4a9c1.598a18"
+            ]
+        ]
+    },
+    {
+        "id": "501faf4f.cb3f",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "wav_file",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 760,
+        "wires": [
+            [
+                "9a3a0ff3.272e5"
+            ]
+        ]
+    },
+    {
+        "id": "13e6e19c.5201ee",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "8cd8696c.f99128",
+        "type": "comment",
+        "z": "f74bc4c5.ba44d8",
+        "name": "upload",
+        "info": "",
+        "x": 110,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "2d1e38fc.1a3388",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "/data/upload/other.219.20201103_211552_412.wav",
+        "props": [
+            {
+                "p": "filename",
+                "v": "/data/upload/other.219.20201103_211552_412.wav",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 1480,
+        "wires": [
+            [
+                "b45e9c87.c23b5"
             ]
         ]
     }
