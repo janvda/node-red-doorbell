@@ -2698,20 +2698,20 @@
         "id": "5ef1a407.e8c84c",
         "type": "switch",
         "z": "f74bc4c5.ba44d8",
-        "name": "not other ?",
+        "name": "is ring",
         "property": "classification",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "neq",
-                "v": "other",
+                "t": "eq",
+                "v": "ring",
                 "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 690,
+        "x": 670,
         "y": 420,
         "wires": [
             [
@@ -2895,7 +2895,7 @@
                 "t": "set",
                 "p": "url",
                 "pt": "msg",
-                "to": "\"http://ingestion.edgeimpulse.com/api/\" & \"training\" & \"/data\"",
+                "to": "\"http://ingestion.edgeimpulse.com/api/\" & \"testing\" & \"/data\"",
                 "tot": "jsonata"
             }
         ],
