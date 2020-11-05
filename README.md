@@ -41,6 +41,8 @@ docker restart nuc-jan_node-red2_1
 
 ## Relevant Edge Impulse Forum topics
 
+* [Getting error "RuntimeError: abort(OOM). Build with -s ASSERTIONS=1 for more info." when using WebAssembly build](https://forum.edgeimpulse.com/t/getting-error-runtimeerror-abort-oom-build-with-s-assertions-1-for-more-info-when-using-webassembly-build/895)
+* [Mapping "Mel-fiterbank" to audacity Mel spectogram](https://forum.edgeimpulse.com/t/mapping-mel-fiterbank-to-audacity-mel-spectogram/894)
 * [Recognize my doorbell](https://forum.edgeimpulse.com/t/recognize-my-doorbell/557)
 * [Mapping audacity “Mel” to MFCC parameters](https://forum.edgeimpulse.com/t/mapping-audacity-mel-to-mfcc-parameters/567)
 * [Deployed WebAssembly build gives different outcome compared to my edge impulse dashboard](https://forum.edgeimpulse.com/t/deployed-webassembly-build-gives-different-outcome-compared-to-my-edge-impulse-dashboard/599)
