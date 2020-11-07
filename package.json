@@ -1,6 +1,6 @@
 {
     "name": "node-red-doorbell",
-    "description": "A Node-RED Project",
+    "description": "Recognize the \"Rrrring\" sound of my doorbell using Node-RED & Edge Impulse.",
     "version": "0.0.1",
     "dependencies": {
         "node-red-contrib-sox-utils": "0.2.5",
