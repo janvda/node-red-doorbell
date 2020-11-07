@@ -18,9 +18,9 @@ It requires that following environment variables are set:
    * choose optimization int8 or float32
    * select build => this will download your model as zip file.
 
-2. Goto the downloads folder where the zip file (see step 1).  Unzip it and open terminal window within it.
+2. Goto the downloads folder where the zip file is located (see step 1).  Unzip it and open terminal window within it.
 
-3. Set DOCKER_HOST variable for terminal session so that it points to docker environment by following alias
+3. Set DOCKER_HOST variable for terminal session so that it points to docker environment by using following alias
 
 ```
 lan_setup
