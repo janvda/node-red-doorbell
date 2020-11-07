@@ -41,6 +41,8 @@ docker restart nuc-jan_node-red2_1
 
 ## Relevant Edge Impulse Forum topics
 
+* [Strange MFE spectogram for 1000 Hz sine wave](https://forum.edgeimpulse.com/t/strange-mfe-spectogram-for-1000-hz-sine-wave/902)
+* [MFE spectogram is limited to High Frequency of 8000Hz](https://forum.edgeimpulse.com/t/mfe-spectogram-is-limited-to-high-frequency-of-8000hz/903)
 * [Getting error "RuntimeError: abort(OOM). Build with -s ASSERTIONS=1 for more info." when using WebAssembly build](https://forum.edgeimpulse.com/t/getting-error-runtimeerror-abort-oom-build-with-s-assertions-1-for-more-info-when-using-webassembly-build/895)
 * [Mapping "Mel-fiterbank" to audacity Mel spectogram](https://forum.edgeimpulse.com/t/mapping-mel-fiterbank-to-audacity-mel-spectogram/894)
 * [Recognize my doorbell](https://forum.edgeimpulse.com/t/recognize-my-doorbell/557)
