@@ -10,7 +10,7 @@
         "id": "c8a363d6.9d7ea",
         "type": "tab",
         "label": "issue buffer",
-        "disabled": false,
+        "disabled": true,
         "info": "see https://discourse.nodered.org/t/http-request-node-invalid-message-body-was-specified-to-be-cbor-but-could-not-decode-message-failed-to-parse/30503"
     },
     {
@@ -24,21 +24,21 @@
         "id": "bc919662.2457c8",
         "type": "tab",
         "label": "edge impulse node test",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "d1671742.a5e358",
         "type": "tab",
         "label": "buffer => window",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
         "id": "48a68979.0ff158",
         "type": "tab",
         "label": "parse wav file",
-        "disabled": false,
+        "disabled": true,
         "info": ""
     },
     {
@@ -3340,9 +3340,9 @@
         "id": "8cd8696c.f99128",
         "type": "comment",
         "z": "f74bc4c5.ba44d8",
-        "name": "upload",
+        "name": "upload files in folder /data/upload to edge impulse studio",
         "info": "",
-        "x": 110,
+        "x": 250,
         "y": 540,
         "wires": []
     },

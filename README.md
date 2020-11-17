@@ -41,6 +41,7 @@ docker restart nuc-jan_node-red2_1
 
 ## Relevant Edge Impulse Forum topics
 
+* [Better ML models with the Spectrogram block](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929) => see especially [my second response summarizing the first test results (2020-11-17)](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929/2)
 * [Strange MFE spectogram for 1000 Hz sine wave](https://forum.edgeimpulse.com/t/strange-mfe-spectogram-for-1000-hz-sine-wave/902)
 * [MFE spectogram is limited to High Frequency of 8000Hz](https://forum.edgeimpulse.com/t/mfe-spectogram-is-limited-to-high-frequency-of-8000hz/903)
 * [Getting error "RuntimeError: abort(OOM). Build with -s ASSERTIONS=1 for more info." when using WebAssembly build](https://forum.edgeimpulse.com/t/getting-error-runtimeerror-abort-oom-build-with-s-assertions-1-for-more-info-when-using-webassembly-build/895)
