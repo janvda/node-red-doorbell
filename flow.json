@@ -2171,6 +2171,13 @@
                 "pt": "flow",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "ring_counts_this_day",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -3617,7 +3624,8 @@
         "y": 860,
         "wires": [
             [
-                "71c9b198.8da4d"
+                "71c9b198.8da4d",
+                "dfff15bc.e084a8"
             ]
         ]
     },
@@ -3703,7 +3711,7 @@
         "y": 760,
         "wires": [
             [
-                "20131970.e028c6"
+                "f89827ce.f0d298"
             ]
         ]
     },
@@ -3754,8 +3762,8 @@
         "topic": "",
         "payload": "This is a test !",
         "payloadType": "str",
-        "x": 660,
-        "y": 720,
+        "x": 920,
+        "y": 680,
         "wires": [
             [
                 "8ea7439c.c651f"
@@ -3773,8 +3781,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 1080,
-        "y": 800,
+        "x": 1480,
+        "y": 840,
         "wires": []
     },
     {
@@ -3817,8 +3825,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 890,
-        "y": 760,
+        "x": 1210,
+        "y": 740,
         "wires": [
             [
                 "66745f83.35741"
@@ -3844,8 +3852,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 850,
-        "y": 720,
+        "x": 1090,
+        "y": 680,
         "wires": [
             [
                 "20131970.e028c6"
@@ -3975,8 +3983,8 @@
         "z": "f74bc4c5.ba44d8",
         "client": "271ce908.9068f6",
         "name": "$slack_token",
-        "x": 850,
-        "y": 800,
+        "x": 1310,
+        "y": 840,
         "wires": [
             [
                 "c7906b3.5f1ea98"
@@ -3999,5 +4007,167 @@
         "x": 850,
         "y": 860,
         "wires": []
+    },
+    {
+        "id": "f89827ce.f0d298",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "ring_counts_this_day <= 40",
+        "property": "ring_counts_this_day",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "2",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 820,
+        "y": 740,
+        "wires": [
+            [
+                "20131970.e028c6"
+            ],
+            [
+                "20cfe19e.5a8d8e"
+            ],
+            [
+                "a0fae4c2.3f8c98"
+            ]
+        ]
+    },
+    {
+        "id": "a0fae4c2.3f8c98",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'ring not logged in slack channel as ring_counts_this_day = ' \t& $flowContext('ring_counts_this_day')",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1040,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "dfff15bc.e084a8",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "increment flow.ring_counts_this_day",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ring_counts_this_day",
+                "pt": "flow",
+                "to": "$flowContext('ring_counts_this_day')+1",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 930,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4580c0b8.fb28d",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "every 24 hours",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "86400",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 660,
+        "y": 940,
+        "wires": [
+            [
+                "b2e2d76e.6eefd8"
+            ]
+        ]
+    },
+    {
+        "id": "b2e2d76e.6eefd8",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "reset ring_counts_this_day",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ring_counts_this_day",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 900,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "20cfe19e.5a8d8e",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "text & ': LIMIT OF RING COUNTS REACHED !!'",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1050,
+        "y": 800,
+        "wires": [
+            [
+                "20131970.e028c6"
+            ]
+        ]
     }
 ]
