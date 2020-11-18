@@ -1623,14 +1623,11 @@
         "name": "",
         "props": [
             {
-                "p": "payload",
-                "v": "start",
-                "vt": "str"
+                "p": "payload"
             },
             {
                 "p": "topic",
-                "v": "",
-                "vt": "string"
+                "vt": "str"
             }
         ],
         "repeat": "",
@@ -4018,12 +4015,12 @@
         "rules": [
             {
                 "t": "lt",
-                "v": "2",
+                "v": "40",
                 "vt": "num"
             },
             {
                 "t": "eq",
-                "v": "2",
+                "v": "40",
                 "vt": "num"
             },
             {
