@@ -187,6 +187,11 @@
         "willPayload": ""
     },
     {
+        "id": "271ce908.9068f6",
+        "type": "slack-config",
+        "name": "$slack_token"
+    },
+    {
         "id": "380b2813.e48b58",
         "type": "sox-record",
         "z": "e06e6cbd.e8c56",
@@ -2409,8 +2414,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 200,
-        "y": 1760,
+        "x": 180,
+        "y": 1780,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2428,8 +2433,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 920,
-        "y": 1960,
+        "x": 900,
+        "y": 1980,
         "wires": []
     },
     {
@@ -2451,8 +2456,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 690,
-        "y": 1800,
+        "x": 670,
+        "y": 1820,
         "wires": [
             [
                 "5cd6f058.a01e9"
@@ -2469,8 +2474,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 580,
-        "y": 2000,
+        "x": 560,
+        "y": 2020,
         "wires": [
             [
                 "d11787fb.00fb18"
@@ -2495,8 +2500,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 610,
-        "y": 1960,
+        "x": 590,
+        "y": 1980,
         "wires": [
             [
                 "132d6cb5.a1a173",
@@ -2526,8 +2531,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
-        "y": 2060,
+        "x": 610,
+        "y": 2080,
         "wires": [
             [
                 "c29808f7.9fdf88",
@@ -2546,8 +2551,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 900,
-        "y": 2060,
+        "x": 880,
+        "y": 2080,
         "wires": []
     },
     {
@@ -2558,8 +2563,8 @@
         "links": [
             "a4baf9b0.f84538"
         ],
-        "x": 915,
-        "y": 2020,
+        "x": 895,
+        "y": 2040,
         "wires": []
     },
     {
@@ -2588,8 +2593,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 910,
-        "y": 1900,
+        "x": 890,
+        "y": 1920,
         "wires": []
     },
     {
@@ -2646,8 +2651,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 590,
-        "y": 1900,
+        "x": 570,
+        "y": 1920,
         "wires": [
             [
                 "7df526c3.33d7a8",
@@ -2661,8 +2666,8 @@
         "z": "f74bc4c5.ba44d8",
         "name": "Test",
         "info": "",
-        "x": 90,
-        "y": 1720,
+        "x": 70,
+        "y": 1740,
         "wires": []
     },
     {
@@ -2683,8 +2688,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 200,
-        "y": 1800,
+        "x": 180,
+        "y": 1820,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2708,8 +2713,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
-        "y": 1840,
+        "x": 250,
+        "y": 1860,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2735,8 +2740,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 650,
-        "y": 1740,
+        "x": 630,
+        "y": 1760,
         "wires": [
             [
                 "e137dbdb.fd48f8"
@@ -2883,8 +2888,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 370,
-        "y": 1520,
+        "x": 350,
+        "y": 1540,
         "wires": [
             [
                 "81efd3a1.05211",
@@ -2903,8 +2908,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 740,
-        "y": 1520,
+        "x": 720,
+        "y": 1540,
         "wires": []
     },
     {
@@ -2912,8 +2917,8 @@
         "type": "CBOR",
         "z": "f74bc4c5.ba44d8",
         "name": "",
-        "x": 370,
-        "y": 1280,
+        "x": 350,
+        "y": 1300,
         "wires": [
             [
                 "e84db08.e1f1e5",
@@ -2954,8 +2959,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 1220,
+        "x": 390,
+        "y": 1240,
         "wires": [
             [
                 "1f471255.5201ee",
@@ -2975,8 +2980,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 660,
-        "y": 1280,
+        "x": 640,
+        "y": 1300,
         "wires": []
     },
     {
@@ -2990,8 +2995,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 650,
-        "y": 1220,
+        "x": 630,
+        "y": 1240,
         "wires": []
     },
     {
@@ -3002,8 +3007,8 @@
         "func": "msg.payload = msg.payload.toString('hex');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 710,
-        "y": 1420,
+        "x": 690,
+        "y": 1440,
         "wires": [
             [
                 "335d583d.11d5c8"
@@ -3021,8 +3026,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 850,
-        "y": 1420,
+        "x": 830,
+        "y": 1440,
         "wires": []
     },
     {
@@ -3035,8 +3040,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 370,
-        "y": 1400,
+        "x": 350,
+        "y": 1420,
         "wires": [
             [
                 "7a0ed89e.72cdd8",
@@ -3056,8 +3061,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 760,
-        "y": 1460,
+        "x": 740,
+        "y": 1480,
         "wires": []
     },
     {
@@ -3070,8 +3075,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 430,
-        "y": 1340,
+        "x": 410,
+        "y": 1360,
         "wires": [
             [
                 "7a5f485.4d4a6b8"
@@ -3097,8 +3102,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 1580,
+        "x": 360,
+        "y": 1600,
         "wires": [
             [
                 "13e6e19c.5201ee"
@@ -3124,8 +3129,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 1620,
+        "x": 360,
+        "y": 1640,
         "wires": [
             [
                 "13e6e19c.5201ee"
@@ -3208,8 +3213,8 @@
         "depth": 0,
         "stat": false,
         "showWarnings": true,
-        "x": 400,
-        "y": 1000,
+        "x": 380,
+        "y": 1020,
         "wires": [
             [
                 "203b0187.972ede",
@@ -3238,8 +3243,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 200,
-        "y": 1000,
+        "x": 180,
+        "y": 1020,
         "wires": [
             [
                 "bf0d0b24.8f2688"
@@ -3258,8 +3263,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 1000,
+        "x": 590,
+        "y": 1020,
         "wires": []
     },
     {
@@ -3272,8 +3277,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 390,
-        "y": 1100,
+        "x": 370,
+        "y": 1120,
         "wires": [
             [
                 "8ae3da94.a0d338",
@@ -3294,8 +3299,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 1100,
+        "x": 610,
+        "y": 1120,
         "wires": []
     },
     {
@@ -3317,8 +3322,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 1060,
+        "x": 370,
+        "y": 1080,
         "wires": [
             [
                 "6e3203f0.a89a1c"
@@ -3335,8 +3340,8 @@
         "createDir": false,
         "overwriteFile": "delete",
         "encoding": "none",
-        "x": 630,
-        "y": 1160,
+        "x": 610,
+        "y": 1180,
         "wires": [
             [
                 "7ec4a9c1.598a18"
@@ -3362,8 +3367,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 1160,
+        "x": 390,
+        "y": 1180,
         "wires": [
             [
                 "9a3a0ff3.272e5"
@@ -3382,8 +3387,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 1580,
+        "x": 600,
+        "y": 1600,
         "wires": []
     },
     {
@@ -3392,8 +3397,8 @@
         "z": "f74bc4c5.ba44d8",
         "name": "upload files in folder /data/upload to edge impulse studio",
         "info": "",
-        "x": 270,
-        "y": 940,
+        "x": 250,
+        "y": 960,
         "wires": []
     },
     {
@@ -3413,47 +3418,13 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 270,
-        "y": 1880,
+        "x": 250,
+        "y": 1900,
         "wires": [
             [
                 "b45e9c87.c23b5"
             ]
         ]
-    },
-    {
-        "id": "4be9f692.c73348",
-        "type": "mqtt in",
-        "z": "f74bc4c5.ba44d8",
-        "name": "",
-        "topic": "/home/doorbell/#",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "b715862a.59d738",
-        "x": 880,
-        "y": 840,
-        "wires": [
-            [
-                "85e81973.ac3ba8"
-            ]
-        ]
-    },
-    {
-        "id": "85e81973.ac3ba8",
-        "type": "debug",
-        "z": "f74bc4c5.ba44d8",
-        "name": "mqtt /home/doorbell",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1120,
-        "y": 840,
-        "wires": []
     },
     {
         "id": "8a212488.b73768",
@@ -3543,8 +3514,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 140,
-        "y": 640,
+        "x": 160,
+        "y": 700,
         "wires": [
             [
                 "980e37c5.71ce98"
@@ -3571,8 +3542,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 340,
-        "y": 780,
+        "x": 320,
+        "y": 880,
         "wires": [
             [
                 "82e039d6.e03648"
@@ -3598,8 +3569,8 @@
         "checkall": "false",
         "repair": false,
         "outputs": 2,
-        "x": 150,
-        "y": 740,
+        "x": 130,
+        "y": 820,
         "wires": [
             [
                 "77cc2edf.79598"
@@ -3642,26 +3613,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 760,
+        "x": 560,
+        "y": 860,
         "wires": [
             [
-                "4a9f9e04.ee211"
+                "71c9b198.8da4d"
             ]
         ]
-    },
-    {
-        "id": "4a9f9e04.ee211",
-        "type": "mqtt out",
-        "z": "f74bc4c5.ba44d8",
-        "name": "",
-        "topic": "/home/doorbell/ringing_started",
-        "qos": "",
-        "retain": "",
-        "broker": "b715862a.59d738",
-        "x": 930,
-        "y": 760,
-        "wires": []
     },
     {
         "id": "77cc2edf.79598",
@@ -3683,8 +3641,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 360,
-        "y": 700,
+        "x": 340,
+        "y": 780,
         "wires": [
             [
                 "32b734a2.3adc5c"
@@ -3727,6 +3685,13 @@
                 "pt": "msg",
                 "to": "ring_count_duration",
                 "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "'Rrrrrring (duration = ' & payload & ')'",
+                "tot": "jsonata"
             }
         ],
         "action": "",
@@ -3734,11 +3699,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 580,
-        "y": 680,
+        "x": 560,
+        "y": 760,
         "wires": [
             [
-                "38b72250.4ec38e"
+                "20131970.e028c6"
             ]
         ]
     },
@@ -3761,33 +3726,278 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 620,
-        "y": 720,
+        "x": 600,
+        "y": 800,
         "wires": [
             []
         ]
     },
     {
-        "id": "38b72250.4ec38e",
-        "type": "mqtt out",
-        "z": "f74bc4c5.ba44d8",
-        "name": "",
-        "topic": "/home/doorbell/ringing_duration",
-        "qos": "",
-        "retain": "",
-        "broker": "b715862a.59d738",
-        "x": 930,
-        "y": 680,
-        "wires": []
-    },
-    {
         "id": "e0f6bbeb.841548",
         "type": "comment",
         "z": "f74bc4c5.ba44d8",
-        "name": "Sending MQTT messages",
+        "name": "Sending messages to slack channel",
         "info": "",
-        "x": 150,
-        "y": 580,
+        "x": 180,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "946a4e3b.2ec29",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "test slack output",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "This is a test !",
+        "payloadType": "str",
+        "x": 660,
+        "y": 720,
+        "wires": [
+            [
+                "8ea7439c.c651f"
+            ]
+        ]
+    },
+    {
+        "id": "c7906b3.5f1ea98",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "slack web out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1080,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "20131970.e028c6",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "prepare slack message",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "chat.meMessage",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"channel\":\"SEE BELOW\",\"text\":\"SEE BELOW\"}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.text",
+                "pt": "msg",
+                "to": "text",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.channel",
+                "pt": "msg",
+                "to": "slack_channel_tweakers",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 760,
+        "wires": [
+            [
+                "66745f83.35741"
+            ]
+        ]
+    },
+    {
+        "id": "8ea7439c.c651f",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "text",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 850,
+        "y": 720,
+        "wires": [
+            [
+                "20131970.e028c6"
+            ]
+        ]
+    },
+    {
+        "id": "b78c8951.139938",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "On Start",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 640,
+        "wires": [
+            [
+                "39a57401.e39f6c"
+            ]
+        ]
+    },
+    {
+        "id": "39a57401.e39f6c",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "store env variables in msg",
+        "rules": [
+            {
+                "t": "set",
+                "p": "slack_token",
+                "pt": "msg",
+                "to": "slack_token",
+                "tot": "env"
+            },
+            {
+                "t": "set",
+                "p": "slack_channel_tweakers",
+                "pt": "msg",
+                "to": "slack_channel_tweakers",
+                "tot": "env"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "2ce714d3.00f1cc"
+            ]
+        ]
+    },
+    {
+        "id": "ce2f3680.3eea58",
+        "type": "catch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "assert error",
+        "scope": [
+            "2ce714d3.00f1cc"
+        ],
+        "uncaught": false,
+        "x": 910,
+        "y": 640,
+        "wires": [
+            [
+                "8bdeecf9.1dcc2"
+            ]
+        ]
+    },
+    {
+        "id": "8bdeecf9.1dcc2",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "assert error",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "error.message",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "2ce714d3.00f1cc",
+        "type": "assert",
+        "z": "f74bc4c5.ba44d8",
+        "name": "check if all env variables for slack are set",
+        "rules": [
+            {
+                "property": "slack_token",
+                "propertyType": "msg",
+                "type": "neq",
+                "value": "",
+                "valueType": "str",
+                "failMsg": "env $slack_token is not set"
+            },
+            {
+                "property": "slack_channel_tweakers",
+                "propertyType": "msg",
+                "type": "neq",
+                "value": "",
+                "valueType": "str",
+                "failMsg": "env $slack_channel_tweakers is not set"
+            }
+        ],
+        "x": 640,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66745f83.35741",
+        "type": "slack-web-out",
+        "z": "f74bc4c5.ba44d8",
+        "client": "271ce908.9068f6",
+        "name": "$slack_token",
+        "x": 850,
+        "y": 800,
+        "wires": [
+            [
+                "c7906b3.5f1ea98"
+            ]
+        ]
+    },
+    {
+        "id": "71c9b198.8da4d",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "ring started",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "'ring started at ring_count = ' & payload",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 860,
         "wires": []
     }
 ]
