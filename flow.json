@@ -166,6 +166,27 @@
         "collapse": false
     },
     {
+        "id": "b715862a.59d738",
+        "type": "mqtt-broker",
+        "name": "local mqtt service",
+        "broker": "mqtt",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
         "id": "380b2813.e48b58",
         "type": "sox-record",
         "z": "e06e6cbd.e8c56",
@@ -2117,6 +2138,34 @@
                 "pt": "flow",
                 "to": "0",
                 "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "ringing",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "ring_count",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "previous_ring_count",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "ring_count_at_end_of_previous_ring",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
             }
         ],
         "action": "",
@@ -2360,8 +2409,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 180,
-        "y": 1360,
+        "x": 200,
+        "y": 1760,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2379,8 +2428,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 900,
-        "y": 1560,
+        "x": 920,
+        "y": 1960,
         "wires": []
     },
     {
@@ -2402,8 +2451,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 670,
-        "y": 1400,
+        "x": 690,
+        "y": 1800,
         "wires": [
             [
                 "5cd6f058.a01e9"
@@ -2420,8 +2469,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
-        "y": 1600,
+        "x": 580,
+        "y": 2000,
         "wires": [
             [
                 "d11787fb.00fb18"
@@ -2446,8 +2495,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 590,
-        "y": 1560,
+        "x": 610,
+        "y": 1960,
         "wires": [
             [
                 "132d6cb5.a1a173",
@@ -2477,8 +2526,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 610,
-        "y": 1660,
+        "x": 630,
+        "y": 2060,
         "wires": [
             [
                 "c29808f7.9fdf88",
@@ -2497,8 +2546,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 880,
-        "y": 1660,
+        "x": 900,
+        "y": 2060,
         "wires": []
     },
     {
@@ -2509,8 +2558,8 @@
         "links": [
             "a4baf9b0.f84538"
         ],
-        "x": 895,
-        "y": 1620,
+        "x": 915,
+        "y": 2020,
         "wires": []
     },
     {
@@ -2539,8 +2588,8 @@
         "console": false,
         "tostatus": false,
         "complete": "false",
-        "x": 890,
-        "y": 1500,
+        "x": 910,
+        "y": 1900,
         "wires": []
     },
     {
@@ -2597,8 +2646,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 570,
-        "y": 1500,
+        "x": 590,
+        "y": 1900,
         "wires": [
             [
                 "7df526c3.33d7a8",
@@ -2612,8 +2661,8 @@
         "z": "f74bc4c5.ba44d8",
         "name": "Test",
         "info": "",
-        "x": 70,
-        "y": 1320,
+        "x": 90,
+        "y": 1720,
         "wires": []
     },
     {
@@ -2634,8 +2683,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 180,
-        "y": 1400,
+        "x": 200,
+        "y": 1800,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2659,8 +2708,8 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 250,
-        "y": 1440,
+        "x": 270,
+        "y": 1840,
         "wires": [
             [
                 "b45e9c87.c23b5"
@@ -2686,8 +2735,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 630,
-        "y": 1340,
+        "x": 650,
+        "y": 1740,
         "wires": [
             [
                 "e137dbdb.fd48f8"
@@ -2712,10 +2761,11 @@
         "repair": false,
         "outputs": 1,
         "x": 670,
-        "y": 420,
+        "y": 440,
         "wires": [
             [
-                "9ec8de58.8d0bb"
+                "9ec8de58.8d0bb",
+                "22eb2c5b.214194"
             ]
         ]
     },
@@ -2733,7 +2783,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1180,
-        "y": 460,
+        "y": 480,
         "wires": []
     },
     {
@@ -2754,7 +2804,7 @@
         "repair": false,
         "outputs": 1,
         "x": 710,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "65005a5c.d99604"
@@ -2795,7 +2845,7 @@
         "to": "",
         "reg": false,
         "x": 950,
-        "y": 460,
+        "y": 480,
         "wires": [
             [
                 "a5f47b61.aa2ef8",
@@ -2833,8 +2883,8 @@
         "persist": false,
         "proxy": "",
         "authType": "",
-        "x": 350,
-        "y": 1120,
+        "x": 370,
+        "y": 1520,
         "wires": [
             [
                 "81efd3a1.05211",
@@ -2853,8 +2903,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 720,
-        "y": 1120,
+        "x": 740,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2862,8 +2912,8 @@
         "type": "CBOR",
         "z": "f74bc4c5.ba44d8",
         "name": "",
-        "x": 350,
-        "y": 880,
+        "x": 370,
+        "y": 1280,
         "wires": [
             [
                 "e84db08.e1f1e5",
@@ -2904,8 +2954,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 820,
+        "x": 410,
+        "y": 1220,
         "wires": [
             [
                 "1f471255.5201ee",
@@ -2925,8 +2975,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 640,
-        "y": 880,
+        "x": 660,
+        "y": 1280,
         "wires": []
     },
     {
@@ -2940,8 +2990,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 630,
-        "y": 820,
+        "x": 650,
+        "y": 1220,
         "wires": []
     },
     {
@@ -2952,8 +3002,8 @@
         "func": "msg.payload = msg.payload.toString('hex');\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "x": 690,
-        "y": 1020,
+        "x": 710,
+        "y": 1420,
         "wires": [
             [
                 "335d583d.11d5c8"
@@ -2971,8 +3021,8 @@
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
-        "x": 830,
-        "y": 1020,
+        "x": 850,
+        "y": 1420,
         "wires": []
     },
     {
@@ -2985,8 +3035,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 350,
-        "y": 1000,
+        "x": 370,
+        "y": 1400,
         "wires": [
             [
                 "7a0ed89e.72cdd8",
@@ -3006,8 +3056,8 @@
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
-        "x": 740,
-        "y": 1060,
+        "x": 760,
+        "y": 1460,
         "wires": []
     },
     {
@@ -3020,8 +3070,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 410,
-        "y": 940,
+        "x": 430,
+        "y": 1340,
         "wires": [
             [
                 "7a5f485.4d4a6b8"
@@ -3047,8 +3097,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1180,
+        "x": 380,
+        "y": 1580,
         "wires": [
             [
                 "13e6e19c.5201ee"
@@ -3074,8 +3124,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
-        "y": 1220,
+        "x": 380,
+        "y": 1620,
         "wires": [
             [
                 "13e6e19c.5201ee"
@@ -3092,8 +3142,8 @@
         "createDir": true,
         "overwriteFile": "true",
         "encoding": "none",
-        "x": 910,
-        "y": 580,
+        "x": 890,
+        "y": 560,
         "wires": [
             []
         ]
@@ -3158,8 +3208,8 @@
         "depth": 0,
         "stat": false,
         "showWarnings": true,
-        "x": 380,
-        "y": 600,
+        "x": 400,
+        "y": 1000,
         "wires": [
             [
                 "203b0187.972ede",
@@ -3188,8 +3238,8 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 180,
-        "y": 600,
+        "x": 200,
+        "y": 1000,
         "wires": [
             [
                 "bf0d0b24.8f2688"
@@ -3208,8 +3258,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
-        "y": 600,
+        "x": 610,
+        "y": 1000,
         "wires": []
     },
     {
@@ -3222,8 +3272,8 @@
         "chunk": false,
         "sendError": false,
         "encoding": "none",
-        "x": 370,
-        "y": 700,
+        "x": 390,
+        "y": 1100,
         "wires": [
             [
                 "8ae3da94.a0d338",
@@ -3244,8 +3294,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 610,
-        "y": 700,
+        "x": 630,
+        "y": 1100,
         "wires": []
     },
     {
@@ -3267,8 +3317,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 370,
-        "y": 660,
+        "x": 390,
+        "y": 1060,
         "wires": [
             [
                 "6e3203f0.a89a1c"
@@ -3285,8 +3335,8 @@
         "createDir": false,
         "overwriteFile": "delete",
         "encoding": "none",
-        "x": 610,
-        "y": 760,
+        "x": 630,
+        "y": 1160,
         "wires": [
             [
                 "7ec4a9c1.598a18"
@@ -3312,8 +3362,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 760,
+        "x": 410,
+        "y": 1160,
         "wires": [
             [
                 "9a3a0ff3.272e5"
@@ -3332,8 +3382,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 1180,
+        "x": 620,
+        "y": 1580,
         "wires": []
     },
     {
@@ -3342,8 +3392,8 @@
         "z": "f74bc4c5.ba44d8",
         "name": "upload files in folder /data/upload to edge impulse studio",
         "info": "",
-        "x": 250,
-        "y": 540,
+        "x": 270,
+        "y": 940,
         "wires": []
     },
     {
@@ -3363,12 +3413,381 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 250,
-        "y": 1480,
+        "x": 270,
+        "y": 1880,
         "wires": [
             [
                 "b45e9c87.c23b5"
             ]
         ]
+    },
+    {
+        "id": "4be9f692.c73348",
+        "type": "mqtt in",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "topic": "/home/doorbell/#",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b715862a.59d738",
+        "x": 880,
+        "y": 840,
+        "wires": [
+            [
+                "85e81973.ac3ba8"
+            ]
+        ]
+    },
+    {
+        "id": "85e81973.ac3ba8",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "mqtt /home/doorbell",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1120,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "8a212488.b73768",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "Rrring (Test)",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 860,
+        "y": 400,
+        "wires": [
+            [
+                "22eb2c5b.214194"
+            ]
+        ]
+    },
+    {
+        "id": "22eb2c5b.214194",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "increment ring_count",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ring_count",
+                "pt": "flow",
+                "to": "$flowContext(\"ring_count\")+1",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ring_count",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 910,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1487235.f14e1",
+        "type": "inject",
+        "z": "f74bc4c5.ba44d8",
+        "name": "polling ring_counter",
+        "props": [
+            {
+                "p": "current_ring_count",
+                "v": "ring_count",
+                "vt": "flow"
+            },
+            {
+                "p": "ring_count_last_published_mqtt_message",
+                "v": "ring_count_last_published_mqtt_message",
+                "vt": "flow"
+            },
+            {
+                "p": "ringing",
+                "v": "ringing",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 140,
+        "y": 640,
+        "wires": [
+            [
+                "980e37c5.71ce98"
+            ]
+        ]
+    },
+    {
+        "id": "cb47e51c.b66ed8",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "ring_count changed ?",
+        "property": "ring_count",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "previous_ring_count",
+                "vt": "flow"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 340,
+        "y": 780,
+        "wires": [
+            [
+                "82e039d6.e03648"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "980e37c5.71ce98",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "flow.ringing ?",
+        "property": "ringing",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 150,
+        "y": 740,
+        "wires": [
+            [
+                "77cc2edf.79598"
+            ],
+            [
+                "cb47e51c.b66ed8"
+            ]
+        ]
+    },
+    {
+        "id": "82e039d6.e03648",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ringing",
+                "pt": "flow",
+                "to": "true",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "previous_ring_count",
+                "pt": "flow",
+                "to": "ring_count",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$flowContext(\"ring_count_at_end_of_previous_ring\")+1",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 760,
+        "wires": [
+            [
+                "4a9f9e04.ee211"
+            ]
+        ]
+    },
+    {
+        "id": "4a9f9e04.ee211",
+        "type": "mqtt out",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "topic": "/home/doorbell/ringing_started",
+        "qos": "",
+        "retain": "",
+        "broker": "b715862a.59d738",
+        "x": 930,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "77cc2edf.79598",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "ring_count didn't change ?",
+        "property": "ring_count",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "previous_ring_count",
+                "vt": "flow"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 360,
+        "y": 700,
+        "wires": [
+            [
+                "32b734a2.3adc5c"
+            ],
+            [
+                "ce35dbf.eb84b28"
+            ]
+        ]
+    },
+    {
+        "id": "32b734a2.3adc5c",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ringing",
+                "pt": "flow",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "set",
+                "p": "ring_count_duration",
+                "pt": "flow",
+                "to": "$flowContext(\"ring_count\") - $flowContext(\"ring_count_at_end_of_previous_ring\")",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "ring_count_at_end_of_previous_ring",
+                "pt": "flow",
+                "to": "ring_count",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ring_count_duration",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 680,
+        "wires": [
+            [
+                "38b72250.4ec38e"
+            ]
+        ]
+    },
+    {
+        "id": "ce35dbf.eb84b28",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "previous_ring_count",
+                "pt": "flow",
+                "to": "ring_count",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 620,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "38b72250.4ec38e",
+        "type": "mqtt out",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "topic": "/home/doorbell/ringing_duration",
+        "qos": "",
+        "retain": "",
+        "broker": "b715862a.59d738",
+        "x": 930,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e0f6bbeb.841548",
+        "type": "comment",
+        "z": "f74bc4c5.ba44d8",
+        "name": "Sending MQTT messages",
+        "info": "",
+        "x": 150,
+        "y": 580,
+        "wires": []
     }
 ]
