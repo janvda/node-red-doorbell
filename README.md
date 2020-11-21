@@ -11,10 +11,15 @@ It requires that following environment variables are set:
 | ------------- | ------------- |
 | slack_token | token of your slack workspace.  It is something like `xoxb-260...AlnL0Q` |
 | slack_channel_ring | ID of the channel where the ring event must be posted.  The ID is typically a string that looks like `C7MHSP2M7`. |
-| EDGE_IMPULSE_APIKEY  | api key for your project. You can find this in your [edge impulse dashboard](https://studio.edgeimpulse.com/). <br> This is only needed if you want to upload audio fragments to the edge impulse dashboard.  |
-| DEVICE_NAME  | Unique identifier for your device - e.g. the MAC address |
-| DEVICE_TYPE  | type of device - e.g the model  |
 
+The flows also contain logic to upload recorded audio fragments to the set of training data or testing data of your [edge impulse dashboard](https://studio.edgeimpulse.com/) project.
+If you want to make use of this optional feature then the below environment variables must be set.
+
+| environment variable | description |
+| ------------- | ------------- |
+| EDGE_IMPULSE_APIKEY  | api key for your project. You can find this in your [edge impulse dashboard](https://studio.edgeimpulse.com/).  |
+| DEVICE_NAME  | Unique identifier for your device - e.g. the MAC address. |
+| DEVICE_TYPE  | type of device - e.g the model.|
 
 ## Deploying new version of edge impulse
 
