@@ -3,6 +3,35 @@
 This service continuously listens for our doorbell ring sound.
 If it hears a ring then it will post a message on the specified [slack](https://slack.com/) channel.
 
+## Prerequisites
+
+### Dockerfile
+
+Following has been added to my docker file to enable audio utilities.
+
+```
+FROM nodered/node-red:1.2.5-12
+USER root
+...
+RUN set -ex && apk --no-cache add sudo sox alsa-utils 
+# the following 2 command assure that node-red user belongs to the "host" audio group (gid = 63) of nuc-jan.
+# this is needed to run commands like arecord, sox, aplay, alsamixer.
+RUN addgroup -g 63 audio_host
+RUN addgroup node-red audio_host
+
+USER node-red
+...
+
+```
+
+### Node-RED `node-red-contrib-edge-impulse`
+
+1. You must install Node-RED node:
+   * https://github.com/janvda/node-red-contrib-edge-impulse
+
+2. The edge impulse Webassembly module must be deployed in folder (for the deployment see instructions below)
+   * `/data/ei-doorbell-1-deployment-wasm-1595836551780/edge-impulse-standalone`
+
 ## Environment Variables
 
 It requires that following environment variables are set:
