@@ -1,5 +1,12 @@
 [
     {
+        "id": "f74bc4c5.ba44d8",
+        "type": "tab",
+        "label": "doorbell service",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "e06e6cbd.e8c56",
         "type": "tab",
         "label": "record & upload",
@@ -12,13 +19,6 @@
         "label": "issue buffer",
         "disabled": true,
         "info": "see https://discourse.nodered.org/t/http-request-node-invalid-message-body-was-specified-to-be-cbor-but-could-not-decode-message-failed-to-parse/30503"
-    },
-    {
-        "id": "f74bc4c5.ba44d8",
-        "type": "tab",
-        "label": "doorbell service",
-        "disabled": false,
-        "info": ""
     },
     {
         "id": "bc919662.2457c8",
