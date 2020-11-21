@@ -947,31 +947,6 @@
         ]
     },
     {
-        "id": "497835fc.2398fc",
-        "type": "change",
-        "z": "e06e6cbd.e8c56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{\t        'x-api-key': 'ei_f2644a0ebef826f54bef92c60a74922e5975fdebcff7e9c095c3570834b3596f',\t        'x-file-name': 'idle.01',\t        'x-label': 'idle',\t        'Content-Type': 'application/cbor'\t}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 370,
-        "y": 1580,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "8b26bdec.67633",
         "type": "ui_switch",
         "z": "e06e6cbd.e8c56",
