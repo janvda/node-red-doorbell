@@ -1,5 +1,7 @@
 # node-red-doorbell
 
+This service continuously listens for our doorbell ring sound.
+If it hears a ring then it will post a message on the specified [slack](https://slack.com/) channel.
 
 ## Environment Variables
 
@@ -7,9 +9,12 @@ It requires that following environment variables are set:
 
 | environment variable | description |
 | ------------- | ------------- |
-| EDGE_IMPULSE_APIKEY  | api key for your project. You can find this in your [edge impulse dashboard](https://studio.edgeimpulse.com/)  |
+| slack_token | token of your slack workspace.  It is something like `xoxb-260...AlnL0Q` |
+| slack_channel_ring | ID of the channel where the ring event must be posted.  The ID is typically a string that looks like `C7MHSP2M7`. |
+| EDGE_IMPULSE_APIKEY  | api key for your project. You can find this in your [edge impulse dashboard](https://studio.edgeimpulse.com/). <br> This is only needed if you want to upload audio fragments to the edge impulse dashboard.  |
 | DEVICE_NAME  | Unique identifier for your device - e.g. the MAC address |
 | DEVICE_TYPE  | type of device - e.g the model  |
+
 
 ## Deploying new version of edge impulse
 

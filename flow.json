@@ -3815,7 +3815,7 @@
                 "t": "set",
                 "p": "payload.channel",
                 "pt": "msg",
-                "to": "slack_channel_tweakers",
+                "to": "slack_channel_ring",
                 "tot": "env"
             }
         ],
@@ -3894,9 +3894,9 @@
             },
             {
                 "t": "set",
-                "p": "slack_channel_tweakers",
+                "p": "slack_channel_ring",
                 "pt": "msg",
-                "to": "slack_channel_tweakers",
+                "to": "slack_channel_ring",
                 "tot": "env"
             }
         ],
@@ -3959,15 +3959,15 @@
                 "type": "neq",
                 "value": "",
                 "valueType": "str",
-                "failMsg": "env $slack_token is not set"
+                "failMsg": "(env variable $slack_token is not set)"
             },
             {
-                "property": "slack_channel_tweakers",
+                "property": "slack_channel_ring",
                 "propertyType": "msg",
                 "type": "neq",
                 "value": "",
                 "valueType": "str",
-                "failMsg": "env $slack_channel_tweakers is not set"
+                "failMsg": "(env variable $slack_channel_ring is not set)"
             }
         ],
         "x": 640,
