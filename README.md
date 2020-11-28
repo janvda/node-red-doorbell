@@ -94,7 +94,7 @@ lan_setup
 docker exec -it nuc-jan_node-red2_1 /bin/bash
 
 # following commands are executed in the bash session in node-red2 container
-cd data
+cd /data
 npm install ./node-red-contrib-edge-impulse/
 exit
 
