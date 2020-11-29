@@ -78,6 +78,32 @@ docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/ei-doorbell-1-d
 docker restart nuc-jan_node-red2_1
 ```
 
+## developing / upgrading `node-red-contrib-edge-impulse` on my intel nuc
+
+The https://github.com/janvda/node-red-contrib-edge-impulse repository is checked out in folder `/data` of my `node-red2` container on my intel nuc.
+
+1. This `/data` folder is accessible via samba.  So I have mounted this samba share on my macbook.
+2. Using visual studio code on my macbook I can edit the mounted samba share (=`/Volumes/node-red2/node-red-contrib-edge-impulse`) and push the changes to the github repository.
+3. Note that the changes made to the repository in step 2 are not automatically used by the node-red flows.  For that it is necessary to reinstall the node and restart node-red by means of following commands on my macbook:
+
+```
+# run alias to set DOCKER_HOST variable
+lan_setup
+
+# start bash session in the node-red2 container
+docker exec -it nuc-jan_node-red2_1 /bin/bash
+
+# following commands are executed in the bash session in node-red2 container
+cd /data
+npm install ./node-red-contrib-edge-impulse/
+exit
+
+# following commands are again executed on macbook
+docker restart nuc-jan_node-red2_1
+docker logs    nuc-jan_node-red2_1  -f  --since 20m
+```
+
+
 ## Relevant Edge Impulse Forum topics
 
 * [Better ML models with the Spectrogram block](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929) => see especially [my second response summarizing the first test results (2020-11-17)](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929/2)
