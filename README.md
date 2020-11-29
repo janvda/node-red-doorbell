@@ -30,7 +30,7 @@ USER node-red
    * https://github.com/janvda/node-red-contrib-edge-impulse
 
 2. The edge impulse Webassembly module must be deployed in folder (for the deployment see instructions below)
-   * `/data/ei-doorbell-1-deployment-wasm-1595836551780/edge-impulse-standalone`
+   * `/data/edge-impulse-doorbell`
 
 ## Environment Variables
 
@@ -68,8 +68,8 @@ lan_setup
 4. Copy the files to the respective folder through following 2 commands:
 
 ```
-docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/ei-doorbell-1-deployment-wasm-1595836551780
-docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/ei-doorbell-1-deployment-wasm-1595836551780
+docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/edge-impulse-doorbell
+docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/edge-impulse-doorbell
 ```
 
 5. You need to restart the node-red container (in portainer) to be sure it is using the new edge impulse
