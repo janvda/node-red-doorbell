@@ -22,11 +22,11 @@ USER node-red
 COPY package.json /data/package.json
 RUN  cd /data; npm install --unsafe-perm --no-update-notifier --no-fund --only=production 
 
-
 # Copy _your_ Node-RED project files into place
 # NOTE: This will only work if you DO NOT later mount /data as an external volume.
 #       If you need to use an external volume for persistence then
 #       copy your settings and flows files to that volume instead.
+ENV FLOWS=flow.json
 COPY settings.js    /data/settings.js
 COPY flow_cred.json /data/flow_cred.json
 COPY flow.json      /data/flow.json
