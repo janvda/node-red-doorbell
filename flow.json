@@ -3993,7 +3993,7 @@
         "type": "edge-impulse-classify",
         "z": "f74bc4c5.ba44d8",
         "name": "",
-        "path": "/data/projects/node-red-doorbell",
+        "path": "/data/edge-impulse-doorbell",
         "x": 420,
         "y": 300,
         "wires": [
