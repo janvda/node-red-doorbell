@@ -31,5 +31,5 @@ COPY settings.js    /data/settings.js
 COPY flow_cred.json /data/flows_cred.json
 COPY flow.json      /data/flows.json
 
-RUN  mkdir /data/edge-impulse-doorbell
-COPY edge-impulse-standalone.js edge-impulse-standalone.wasm /data/edge-impulse-doorbell/
+RUN  mkdir -p /data/projects/node-red-doorbell
+COPY edge-impulse-standalone.js edge-impulse-standalone.wasm /data/projects/node-red-doorbell/
