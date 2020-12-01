@@ -28,8 +28,9 @@ RUN  cd /data; npm install --unsafe-perm --no-update-notifier --no-fund --only=p
 #       If you need to use an external volume for persistence then
 #       copy your settings and flows files to that volume instead.
 COPY settings.js    /data/settings.js
-COPY flow_cred.json /data/flows_cred.json
-COPY flow.json      /data/flows.json
+COPY flow_cred.json /data/flow_cred.json
+COPY flow.json      /data/flow.json
 
+# copy also edge impulse to correct location.
 RUN  mkdir -p /data/projects/node-red-doorbell
 COPY edge-impulse-standalone.js edge-impulse-standalone.wasm /data/projects/node-red-doorbell/
