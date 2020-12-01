@@ -1817,80 +1817,6 @@
         "wires": []
     },
     {
-        "id": "c4de65f3.c364b8",
-        "type": "edge-impulse-classify",
-        "z": "f74bc4c5.ba44d8",
-        "name": "",
-        "path": "/data/edge-impulse-doorbell",
-        "x": 420,
-        "y": 300,
-        "wires": [
-            [
-                "ad5c9388.7678f",
-                "92425b08.678d78"
-            ]
-        ]
-    },
-    {
-        "id": "ad5c9388.7678f",
-        "type": "debug",
-        "z": "f74bc4c5.ba44d8",
-        "name": "classification",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "x": 770,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "92425b08.678d78",
-        "type": "change",
-        "z": "f74bc4c5.ba44d8",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "classification",
-                "pt": "msg",
-                "to": "payload.results[0].value >= 0.7 ? \"other\" :\tpayload.results[1].value >= 0.7 ? \"ring\" : \"unclear\"",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 360,
-        "wires": [
-            [
-                "95e15efe.e1f5a",
-                "6601f4e6.29c5ac",
-                "5ef1a407.e8c84c"
-            ]
-        ]
-    },
-    {
-        "id": "95e15efe.e1f5a",
-        "type": "debug",
-        "z": "f74bc4c5.ba44d8",
-        "name": "classification",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "classification",
-        "targetType": "msg",
-        "x": 770,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "806c7e21.e8c0f",
         "type": "function",
         "z": "d1671742.a5e358",
@@ -2038,38 +1964,6 @@
                 "1a4ab345.a19fdd",
                 "93232062.0aa57"
             ]
-        ]
-    },
-    {
-        "id": "6601f4e6.29c5ac",
-        "type": "change",
-        "z": "f74bc4c5.ba44d8",
-        "name": "update stats",
-        "rules": [
-            {
-                "t": "set",
-                "p": "stats",
-                "pt": "msg",
-                "to": "stats",
-                "tot": "flow"
-            },
-            {
-                "t": "set",
-                "p": "stats",
-                "pt": "flow",
-                "to": "{\t        \"count\": stats.count+1,\t        \"ring_count\": stats.ring_count + (classification=\"ring\"?1:0),\t        \"other_count\": stats.other_count+ (classification=\"other\"?1:0),\t        \"unclear_count\": stats.unclear_count + (classification=\"unclear\"?1:0)\t}",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 420,
-        "wires": [
-            []
         ]
     },
     {
@@ -2731,32 +2625,6 @@
         ]
     },
     {
-        "id": "5ef1a407.e8c84c",
-        "type": "switch",
-        "z": "f74bc4c5.ba44d8",
-        "name": "is ring",
-        "property": "classification",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "ring",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 670,
-        "y": 440,
-        "wires": [
-            [
-                "9ec8de58.8d0bb",
-                "22eb2c5b.214194"
-            ]
-        ]
-    },
-    {
         "id": "a5f47b61.aa2ef8",
         "type": "debug",
         "z": "f74bc4c5.ba44d8",
@@ -2772,31 +2640,6 @@
         "x": 1180,
         "y": 480,
         "wires": []
-    },
-    {
-        "id": "9ec8de58.8d0bb",
-        "type": "switch",
-        "z": "f74bc4c5.ba44d8",
-        "name": "flow.wav_count<10",
-        "property": "wav_count",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "lt",
-                "v": "20",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 710,
-        "y": 480,
-        "wires": [
-            [
-                "65005a5c.d99604"
-            ]
-        ]
     },
     {
         "id": "65005a5c.d99604",
@@ -4142,6 +3985,165 @@
         "wires": [
             [
                 "20131970.e028c6"
+            ]
+        ]
+    },
+    {
+        "id": "c4de65f3.c364b8",
+        "type": "edge-impulse-classify",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "path": "/data/edge-impulse-doorbell",
+        "x": 420,
+        "y": 300,
+        "wires": [
+            [
+                "ad5c9388.7678f",
+                "92425b08.678d78"
+            ]
+        ]
+    },
+    {
+        "id": "ad5c9388.7678f",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "classification",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "92425b08.678d78",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "classification",
+                "pt": "msg",
+                "to": "payload.results[0].value >= 0.7 ? \"other\" :\tpayload.results[1].value >= 0.7 ? \"ring\" : \"unclear\"",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 360,
+        "wires": [
+            [
+                "95e15efe.e1f5a",
+                "6601f4e6.29c5ac",
+                "5ef1a407.e8c84c"
+            ]
+        ]
+    },
+    {
+        "id": "95e15efe.e1f5a",
+        "type": "debug",
+        "z": "f74bc4c5.ba44d8",
+        "name": "classification",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "classification",
+        "targetType": "msg",
+        "x": 770,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "6601f4e6.29c5ac",
+        "type": "change",
+        "z": "f74bc4c5.ba44d8",
+        "name": "update stats",
+        "rules": [
+            {
+                "t": "set",
+                "p": "stats",
+                "pt": "msg",
+                "to": "stats",
+                "tot": "flow"
+            },
+            {
+                "t": "set",
+                "p": "stats",
+                "pt": "flow",
+                "to": "{\t        \"count\": stats.count+1,\t        \"ring_count\": stats.ring_count + (classification=\"ring\"?1:0),\t        \"other_count\": stats.other_count+ (classification=\"other\"?1:0),\t        \"unclear_count\": stats.unclear_count + (classification=\"unclear\"?1:0)\t}",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5ef1a407.e8c84c",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "is ring",
+        "property": "classification",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "ring",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 670,
+        "y": 440,
+        "wires": [
+            [
+                "9ec8de58.8d0bb",
+                "22eb2c5b.214194"
+            ]
+        ]
+    },
+    {
+        "id": "9ec8de58.8d0bb",
+        "type": "switch",
+        "z": "f74bc4c5.ba44d8",
+        "name": "flow.wav_count<10",
+        "property": "wav_count",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "20",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "65005a5c.d99604"
             ]
         ]
     }
