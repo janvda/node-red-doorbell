@@ -1,7 +1,7 @@
 {
     "name": "node-red-doorbell",
     "description": "Recognize the \"Rrrring\" sound of my doorbell using Node-RED & Edge Impulse and postes a message on slack.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "dependencies": {
         "node-red-contrib-sox-utils": "johanneskropf/node-red-contrib-sox-utils",
         "node-red-contrib-cbor": "^1.1.0",

@@ -85,7 +85,9 @@ docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/projects/node-r
 docker restart nuc-jan_node-red2_1
 ```
 
-## Publishing a new image to docker hub
+## Publishing a new image version to docker hub
+
+Before doing this you can update the version in [package.json](package.json) and use this version as tag (see point 3.)
 
 ```
 # 1. assure that DOCKER_HOST is not pointing to remote docker environment
