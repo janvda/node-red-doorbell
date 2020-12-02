@@ -9,11 +9,11 @@ If it hears a ring then it will post a message on the specified [slack](https://
 
 Following has been added to [my docker file](Dockerfile) to enable audio utilities.
 
-```
+```dockerfile
 FROM nodered/node-red:1.2.6-12-minimal
 USER root
 ...
-RUN set -ex && apk --no-cache add sudo sox alsa-utils 
+RUN set -ex && apk --no-cache add sudo sox alsa-utils
 # the following 2 command assure that node-red user belongs to the "host" audio group (gid = 63) of nuc-jan.
 # this is needed to run commands like arecord, sox, aplay, alsamixer.
 RUN addgroup -g 63 audio_host
@@ -26,9 +26,9 @@ USER node-red
 
 ### Docker compose file
 
-The devices `/dev/snd:/dev/snd` are set in my `docker-compose.yml` file so that my `doorbell` container can access the microphone of my intel-nuc device. 
+The devices `/dev/snd:/dev/snd` are set in my `docker-compose.yml` file so that my `doorbell` container can access the microphone of my intel-nuc device.
 
-```
+```yaml
   doorbell:
     image: janvda/doorbell:0.1.0
     ports:
@@ -68,20 +68,20 @@ If you want to make use of this optional feature then the below environment vari
 
 3. Set DOCKER_HOST variable for terminal session so that it points to docker environment by using following alias
 
-```
+```bash
 lan_setup
 ```
 
 4. Copy the files to the respective folder through following 2 commands:
 
-```
+```bash
 docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/projects/node-red-doorbell
 docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/projects/node-red-doorbell
 ```
 
 5. You need to restart the node-red container (in portainer) to be sure it is using the new edge impulse
 
-```
+```bash
 docker restart nuc-jan_node-red2_1
 ```
 
@@ -89,7 +89,7 @@ docker restart nuc-jan_node-red2_1
 
 Before doing this you can update the version in [package.json](package.json) and use this version as tag (see point 3.)
 
-```
+```bash
 # 1. assure that DOCKER_HOST is not pointing to remote docker environment
 export DOCKER_HOST=
 
@@ -104,24 +104,28 @@ docker push janvda/doorbell:0.1.1
 docker tag janvda/doorbell:0.1.1 janvda/doorbell:latest
 docker push janvda/doorbell:latest
 ```
+
 ## Running the docker image locally
 
 This image (see previous section) can be run locally (e.g. on my macbook) using the command:
-```
+
+```bash
 docker run -p 1880:1880 janvda/doorbell
 ```
 
 The application in that case can be accessed at following URL:
+
 * http://127.0.0.1:1880
+
 ## developing / upgrading `node-red-contrib-edge-impulse` on my intel nuc
 
-The https://github.com/janvda/node-red-contrib-edge-impulse repository is checked out in folder `/data` of my `node-red2` container on my intel nuc.
+The [janvda/node-red-contrib-edge-impulse](https://github.com/janvda/node-red-contrib-edge-impulse) repository is checked out in folder `/data` of my `node-red2` container on my intel nuc.
 
 1. This `/data` folder is accessible via samba.  So I have mounted this samba share on my macbook.
 2. Using visual studio code on my macbook I can edit the mounted samba share (=`/Volumes/node-red2/node-red-contrib-edge-impulse`) and push the changes to the github repository.
 3. Note that the changes made to the repository in step 2 are not automatically used by the node-red flows.  For that it is necessary to reinstall the node and restart node-red by means of following commands on my macbook:
 
-```
+```bash
 # run alias to set DOCKER_HOST variable
 lan_setup
 
