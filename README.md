@@ -5,6 +5,8 @@ If it hears a ring then it will post a message on the specified [slack](https://
 
 ## Prerequisites
 
+**Only one docker container can access the microphone at a time.  So you can not have 2 docker containers accessing the microphone !!!**
+
 ### Dockerfile
 
 Following has been added to [my docker file](Dockerfile) to enable audio utilities.
