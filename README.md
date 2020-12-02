@@ -39,7 +39,7 @@ The devices `/dev/snd:/dev/snd` are set in my `docker-compose.yml` file so that 
       - /dev/snd:/dev/snd
 ```
 
-## Environment Variables
+### Environment Variables
 
 It requires that following environment variables are set:
 
@@ -85,6 +85,32 @@ docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/projects/node-r
 docker restart nuc-jan_node-red2_1
 ```
 
+## Publishing a new image to docker hub
+
+```
+# 1. assure that DOCKER_HOST is not pointing to remote docker environment
+export DOCKER_HOST=
+
+# 2. build the image
+docker build -t janvda/doorbell:latest .
+
+# 3. publishing the image
+docker login
+docker images
+docker tag 7c2 janvda/doorbell:0.1.1
+docker push janvda/doorbell:0.1.1
+docker tag janvda/doorbell:0.1.1 janvda/doorbell:latest
+docker push janvda/doorbell:latest
+```
+## Running the docker image locally
+
+This image (see previous section) can be run locally (e.g. on my macbook) using the command:
+```
+docker run -p 1880:1880 janvda/doorbell
+```
+
+The application in that case can be accessed at following URL:
+* http://127.0.0.1:1880
 ## developing / upgrading `node-red-contrib-edge-impulse` on my intel nuc
 
 The https://github.com/janvda/node-red-contrib-edge-impulse repository is checked out in folder `/data` of my `node-red2` container on my intel nuc.
