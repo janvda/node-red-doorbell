@@ -87,7 +87,11 @@ docker restart nuc-jan_node-red2_1
 
 ## Publishing a new image version to docker hub
 
-Before doing this you can update the version in [package.json](package.json) and use this version as tag (see point 3.)
+1. On your docker build machine (macbook in my case) you must have cloned the repository [janvda/node-red-doorbell](https://github.com/janvda/node-red-doorbell) and assure that it has the latest changes.
+
+2. Before doing this you can update the version in [package.json](package.json) and use this version as tag (see point 3.)
+
+3. open a terminal window in the folder containing the Dockerfile of the cloned repository (see step 1) and execute following commands:
 
 ```bash
 # 1. assure that DOCKER_HOST is not pointing to remote docker environment
@@ -99,6 +103,9 @@ docker build -t janvda/doorbell:latest .
 # 3. publishing the image
 docker login
 docker images
+
+# replace 7c2 in next command by the first characters of the IMAGE ID you have built in step 2
+# replace 0.1.1 in following command by new version number
 docker tag 7c2 janvda/doorbell:0.1.1
 docker push janvda/doorbell:0.1.1
 docker tag janvda/doorbell:0.1.1 janvda/doorbell:latest
