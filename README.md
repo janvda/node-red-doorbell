@@ -7,10 +7,10 @@ If it hears a ring then it will post a message on the specified [slack](https://
 
 ### Dockerfile
 
-Following has been added to my docker file to enable audio utilities.
+Following has been added to [my docker file](Dockerfile) to enable audio utilities.
 
 ```
-FROM nodered/node-red:1.2.5-12
+FROM nodered/node-red:1.2.6-12-minimal
 USER root
 ...
 RUN set -ex && apk --no-cache add sudo sox alsa-utils 
@@ -24,13 +24,20 @@ USER node-red
 
 ```
 
-### Node-RED `node-red-contrib-edge-impulse`
+### Docker compose file
 
-1. You must install Node-RED node:
-   * https://github.com/janvda/node-red-contrib-edge-impulse
+The devices `/dev/snd:/dev/snd` are set in my `docker-compose.yml` file so that my `doorbell` container can access the microphone of my intel-nuc device. 
 
-2. The edge impulse Webassembly module must be deployed in folder (for the deployment see instructions below)
-   * `/data/edge-impulse-doorbell`
+```
+  doorbell:
+    image: janvda/doorbell:0.1.0
+    ports:
+      - "1889:1880"
+    restart: always
+    devices:
+      # is needed to access host microphone
+      - /dev/snd:/dev/snd
+```
 
 ## Environment Variables
 
@@ -68,8 +75,8 @@ lan_setup
 4. Copy the files to the respective folder through following 2 commands:
 
 ```
-docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/edge-impulse-doorbell
-docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/edge-impulse-doorbell
+docker cp edge-impulse-standalone.js   nuc-jan_node-red2_1:/data/projects/node-red-doorbell
+docker cp edge-impulse-standalone.wasm nuc-jan_node-red2_1:/data/projects/node-red-doorbell
 ```
 
 5. You need to restart the node-red container (in portainer) to be sure it is using the new edge impulse
@@ -103,8 +110,11 @@ docker restart nuc-jan_node-red2_1
 docker logs    nuc-jan_node-red2_1  -f  --since 20m
 ```
 
+## References
 
-## Relevant Edge Impulse Forum topics
+* [janvda/node-red-contrib-edge-impulse](https://github.com/janvda/node-red-contrib-edge-impulse)
+
+### Relevant Edge Impulse Forum topics
 
 * [Better ML models with the Spectrogram block](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929) => see especially [my second response summarizing the first test results (2020-11-17)](https://forum.edgeimpulse.com/t/better-ml-models-with-the-spectrogram-block/929/2)
 * [Strange MFE spectogram for 1000 Hz sine wave](https://forum.edgeimpulse.com/t/strange-mfe-spectogram-for-1000-hz-sine-wave/902)
