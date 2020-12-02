@@ -118,9 +118,15 @@ This image (see previous section) can be run locally (e.g. on my macbook) using 
 
 ```bash
 docker run -p 1880:1880 janvda/doorbell
+
+# below sets environment variables based on my .env.node-red file
+docker run -p 1880:1880 --env-file /Users/jan/Documents/15_iot/balena/active/nuc/nuc-jan/.env.node-red janvda/doorbell
+
+# below command also shares the sound device - but this command doesn't work on macos !
+docker run -p 1880:1880 --env-file /Users/jan/Documents/15_iot/balena/active/nuc/nuc-jan/.env.node-red --device=/dev/snd:/dev/snd janvda/doorbell
 ```
 
-The application in that case can be accessed at following URL:
+The node-red editor of the doorbell application in that case can be accessed at following URL:
 
 * http://127.0.0.1:1880
 
